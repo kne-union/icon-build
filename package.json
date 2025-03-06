@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "用于构建字体图标文件",
   "bin": {
-    "icon-build": "bin.js"
+    "kne-icon-build": "bin.js"
   },
   "main": "index.js",
   "scripts": {
