@@ -24,7 +24,7 @@ const compileColorfulFont = async ({ name, inputDir, outputDir }) => {
   const sprites = svgstore({ renameDefs: true });
   const list = [];
   for (let filename of files) {
-    const baseName = name.replace(path.extname(filename), '');
+    const baseName = filename.replace(path.extname(filename), '');
     const newName =
       `icon-color-${name}-` +
       pinyin(baseName, {
@@ -67,8 +67,12 @@ module.exports = async options => {
     if (!stats.isDirectory()) {
       continue;
     }
-    if (name.indexOf('colorful') > -1) {
-      output[name] = await compileColorfulFont({ name, inputDir: path.resolve(srcDir, name), outputDir: distDir });
+    if (name.indexOf('-colorful') > -1) {
+      output[name] = await compileColorfulFont({
+        name: name.replace('-colorful', ''),
+        inputDir: path.resolve(srcDir, name),
+        outputDir: distDir
+      });
     } else {
       output[name] = await compileFont({ name, inputDir: path.resolve(srcDir, name), outputDir: distDir });
     }
