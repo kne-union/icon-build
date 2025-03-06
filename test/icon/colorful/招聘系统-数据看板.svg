@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>招聘系统-数据看板</title>
+    <defs>
+        <filter x="-50.0%" y="-50.0%" width="200.0%" height="200.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.360784314   0 0 0 0 0.721568627   0 0 0 0 0.698039216  0 0 0 0.236341783 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="PC端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标Icon" transform="translate(-624.000000, -2337.000000)" fill-rule="nonzero">
+            <g id="招聘系统-数据看板" transform="translate(627.000000, 2340.000000)">
+                <g filter="url(#filter-1)" transform="translate(9.000000, 9.000000)" fill="#5CB8B2" id="形状">
+                    <path d="M28.4434286,0 L3.55657144,0 C1.59085716,0 0,1.59085716 0,3.55657144 L0,28.4434286 C0,30.4091428 1.59085716,32 3.55657144,32 L28.4434286,32 C30.4091428,32 32,30.4091428 32,28.4434286 L32,3.55657144 C32,1.59085716 30.4091428,0 28.4434286,0 M10.6674286,24.8891428 L7.10857144,24.8891428 L7.10857144,12.4434286 L10.6651428,12.4434286 L10.6651428,24.8891428 M17.7737143,24.8891428 L14.224,24.8891428 L14.224,7.10857144 L17.7805714,7.10857144 L17.7805714,24.8868572 M24.8891428,24.8868572 L21.3348572,24.8868572 L21.3348572,17.7782857 L24.8914286,17.7782857 L24.8914286,24.8868572 L24.8891428,24.8868572 Z"></path>
+                </g>
+                <path d="M33.4952188,8.99979009 L26.3872188,16.1077901 L23.224,16.1085714 L23.2232188,19.2717901 L19.6642188,22.8307901 L19.6651428,21.4434286 L16.1085714,21.4434286 L16.1082188,26.3867901 L8.99921879,33.4957901 L9,12.5565714 C9,10.6542673 10.4898766,9.10302602 12.3675521,9.00492544 L12.5565714,9 L33.4952188,8.99979009 Z" id="形状结合" fill="#76D6CC"></path>
+            </g>
+        </g>
+    </g>
+</svg>

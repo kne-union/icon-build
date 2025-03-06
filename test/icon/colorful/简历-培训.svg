@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>简历-培训</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#95DDD9" offset="0%"></stop>
+            <stop stop-color="#5CB8B2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="简历页图标切图" transform="translate(-461.000000, -82.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="简历-培训" transform="translate(461.000000, 82.000000)">
+                <path d="M21,3 L12,3 L12,1 L10,1 L10,3 L1,3 L1,16.87 L6.83,16.87 L5,20 L6.73,21 L9.13,16.87 L12.86,16.87 L15.27,21 L17,20 L15.17,16.86 L21,16.86 L21,3 Z M17,12.9 L5,12.9 L5,10.9 L17,10.9 L17,12.9 Z M17,8.9 L5,8.9 L5,7 L17,7 L17,8.9 Z" id="形状"></path>
+            </g>
+        </g>
+    </g>
+</svg>

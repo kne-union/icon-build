@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>审批-标题</title>
+    <defs>
+        <linearGradient x1="9.05037354%" y1="7.1682221%" x2="93.1727358%" y2="90.4110217%" id="linearGradient-1">
+            <stop stop-color="#F9CD53" offset="0%"></stop>
+            <stop stop-color="#F5882E" offset="100%"></stop>
+        </linearGradient>
+        <path d="M8.2833073,18.8906494 L19.7617719,18.8906494 C20.1534256,18.8906494 20.4798036,18.4989958 20.414528,18.1073421 L20.1534256,16.6729525 C20.0228744,16.085472 19.5006695,15.6302165 18.9148628,15.6302165 L15.784981,15.6302165 L15.5238786,14 C16.9582682,13.4125195 17.9374024,12.0434055 17.9374024,10.413189 C17.9374024,8.26076769 16.1766347,6.5 14.0242133,6.5 C11.871792,6.5 10.1093506,8.25909395 10.1093506,10.4115153 C10.1093506,12.0417318 11.086811,13.4108458 12.5228744,13.9983263 L12.3270475,15.6285427 L9.19716581,15.6285427 C8.60968534,15.6285427 8.0238786,16.085472 7.95860299,16.6712787 L7.69750056,18.1056684 C7.56527561,18.4989958 7.89165365,18.8906494 8.2833073,18.8906494 Z M19.8923231,20.1944878 L8.15275608,20.1944878 C7.76110243,20.1944878 7.5,20.4555903 7.5,20.8472439 C7.5,21.2388976 7.76110243,21.5 8.15275608,21.5 L19.8923231,21.5 C20.2839768,21.5 20.5450792,21.2388976 20.5450792,20.8472439 C20.5450792,20.4555903 20.2823031,20.1944878 19.8923231,20.1944878 Z" id="path-2"></path>
+        <filter x="-49.8%" y="-36.7%" width="199.7%" height="186.7%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.942330181   0 0 0 0 0.359109198   0 0 0 0 0.18452638  0 0 0 0.304626038 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="PC端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标" transform="translate(-741.000000, -1121.000000)">
+            <g id="审批-标题" transform="translate(741.000000, 1121.000000)">
+                <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="28" height="28" rx="6"></rect>
+                <g id="形状" fill-rule="nonzero">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="#FFFFFF" xlink:href="#path-2"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
