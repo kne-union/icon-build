@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require('node:path');
 const fs = require('fs-extra');
 const svgstore = require('svgstore');
-const crypto = require('crypto');
+const crypto = require('node:crypto');
 const { pinyin } = require('pinyin-pro');
 
 const rootDir = process.cwd();
@@ -17,26 +17,27 @@ const compileFont = async ({ name, inputDir, outputDir }) => {
 };
 
 const compileColorfulFont = async ({ name, inputDir, outputDir }) => {
-  const renderTemplate = (svgStr, outputName) =>
-    `var dom = document.createElement("div");dom.setAttribute("aria-hidden", "true");dom.id = "${outputName}";dom.style.position = "absolute";dom.style.width = 0;dom.style.height = 0;dom.style.overflow = "hidden";dom.innerHTML = '${svgStr}';!document.getElementById(dom.id) && document.body.append(dom);`;
+  const renderTemplate = (svgStr, outputName) => `var dom = document.createElement("div");dom.setAttribute("aria-hidden", "true");dom.id = "${outputName}";dom.style.position = "absolute";dom.style.width = 0;dom.style.height = 0;dom.style.overflow = "hidden";dom.innerHTML = '${svgStr}';!document.getElementById(dom.id) && document.body.append(dom);`;
 
   const files = await fs.readdir(inputDir);
   const sprites = svgstore({ renameDefs: true });
   const list = [];
   for (let filename of files) {
     const baseName = filename.replace(path.extname(filename), '');
-    const newName =
-      `icon-color-${name}-` +
-      pinyin(baseName, {
-        toneType: 'none',
-        type: 'array',
-        v: true
-      }).join('');
+    let newName = `icon-color-${name}-` + pinyin(baseName, {
+      toneType: 'none', type: 'array', v: true
+    }).join('');
+    newName = newName
+      .replace(/[^a-zA-Z0-9]/g, '') // 移除非字母数字字符
+      .replace(/\s+/g, '_') // 空格转下划线
+      .replace(/([a-z])([A-Z])/g, '$1_$2') // 驼峰转下划线
+      .toLowerCase() // 转为小写
+      .replace(/_+/g, '_'); // 合并连续下划线
+
     const file = await fs.readFile(path.resolve(inputDir, filename), 'utf8');
     sprites.add(newName, file);
     list.push({
-      name: newName,
-      font_class: newName
+      name: newName, font_class: newName
     });
   }
 
@@ -69,14 +70,17 @@ module.exports = async options => {
     }
     if (name.indexOf('-colorful') > -1) {
       output[name] = await compileColorfulFont({
-        name: name.replace('-colorful', ''),
-        inputDir: path.resolve(srcDir, name),
-        outputDir: distDir
+        name: name.replace('-colorful', ''), inputDir: path.resolve(srcDir, name), outputDir: distDir
       });
     } else {
       output[name] = await compileFont({ name, inputDir: path.resolve(srcDir, name), outputDir: distDir });
     }
   }
   await fs.writeJson(path.resolve(distDir, 'manifest.json'), output);
+  await fs.writeFile(path.resolve(distDir, 'index.js'), Object.keys(output).map((fontName) => {
+    const name = output[fontName];
+    const isColorful = /-colorful$/.test(fontName);
+    return `import './${name}/${isColorful ? 'iconfont' : 'iconfont.css'}`;
+  }).join('\n'));
   console.log('执行完成:', JSON.stringify(output, null, 2));
 };
