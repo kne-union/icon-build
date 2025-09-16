@@ -28,8 +28,7 @@ const compileColorfulFont = async ({ name, inputDir, outputDir }) => {
       toneType: 'none', type: 'array', v: true
     }).join('');
     newName = newName
-      .replace(/[^a-zA-Z0-9]/g, '') // 移除非字母数字字符
-      .replace(/\s+/g, '_') // 空格转下划线
+      .replace(/[^a-zA-Z0-9_\-]/g, '') // 移除非字母数字下划线字符      .replace(/\s+/g, '_') // 空格转下划线
       .replace(/([a-z])([A-Z])/g, '$1_$2') // 驼峰转下划线
       .toLowerCase() // 转为小写
       .replace(/_+/g, '_'); // 合并连续下划线
@@ -83,5 +82,9 @@ module.exports = async options => {
     const isColorful = /-colorful$/.test(fontName);
     return `import './${name}/${isColorful ? 'iconfont' : 'iconfont.css'}';`;
   }).join('\n'));
+  await fs.writeFile(path.resolve(distDir, 'fonts.js'), `${Object.keys(output).map((fontName, index) => {
+    const name = output[fontName];
+    return `import font${index}  from './${name}/iconfont.json';`;
+  }).join('\n')}\nexport default { ${Object.keys(output).map((name, index) => `"${name}":font${index}`).join(',')} };`);
   console.log('执行完成:', JSON.stringify(output, null, 2));
 };
