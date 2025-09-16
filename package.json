@@ -1,6 +1,6 @@
 {
   "name": "@kne/icon-build",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "用于构建字体图标文件",
   "bin": {
     "icon-build": "bin.js"

@@ -80,7 +80,7 @@ module.exports = async options => {
   await fs.writeFile(path.resolve(distDir, 'index.js'), Object.keys(output).map((fontName) => {
     const name = output[fontName];
     const isColorful = /-colorful$/.test(fontName);
-    return `import './${name}/${isColorful ? 'iconfont' : 'iconfont.css'}`;
+    return `import './${name}/${isColorful ? 'iconfont' : 'iconfont.css'}';`;
   }).join('\n'));
   console.log('执行完成:', JSON.stringify(output, null, 2));
 };
