@@ -46,7 +46,7 @@ const compileColorfulFont = async ({ name, inputDir, outputDir }) => {
   const md5Str = md5.update(svgStr).digest('hex');
   const outputName = name + '_' + md5Str.slice(0, 12);
   const distDir = path.resolve(outputDir, outputName);
-  await fs.emptydir(distDir);
+  await fs.emptyDir(distDir);
   await fs.writeFile(path.resolve(distDir, 'iconfont.js'), renderTemplate(svgStr, outputName));
   await fs.writeFile(path.resolve(distDir, 'iconfont.svg'), svgStr);
   await fs.writeJson(path.resolve(distDir, 'iconfont.json'), {
@@ -60,6 +60,7 @@ module.exports = async options => {
   const { inputDir, outputDir } = Object.assign({}, options);
   const srcDir = path.resolve(rootDir, inputDir || process.env.INPUT || 'src/icon');
   const distDir = path.resolve(rootDir, outputDir || process.env.OUTPUT || 'public/icon-build');
+  await fs.emptyDir(distDir);
   const output = {};
 
   const list = await fs.readdir(srcDir);
